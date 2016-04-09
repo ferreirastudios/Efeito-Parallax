@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Aula Parallax </title>
+<meta charset="UTF-8">
+	<style>
+		
+		body {
+			margin: 0px;
+			background: url(imgs/background.jpg) fixed;
+			width: 100%;
+			height: auto;
+		}
+
+		h1 { color: transparent; }
+
+		#content {
+			position: absolute;
+		}
+
+		.img-parallax {
+			position: fixed;
+			width: 100%;
+			height: 1000px;
+		}
+
+		#layer_1 {
+			background: url("imgs/rock_1.png") no-repeat 0px 200px;
+		}
+
+		#layer_2 {
+			background: url("imgs/owl_1.png") no-repeat 600px 400px;
+		}
+
+		#layer_3 {
+			background: url("imgs/rock_2.png") no-repeat 700px 10px;
+		}
+
+		#layer_4 {
+			background: url("imgs/rock_3.png") no-repeat -120px 400px;
+		}
+	</style>
+
+	<script>
+
+		function parallax(){
+			// Declarando as var.
+			var layer_1 = document.getElementById('layer_1');
+			var layer_2 = document.getElementById('layer_2');
+			var layer_3 = document.getElementById('layer_3');
+			var layer_4 = document.getElementById('layer_4');
+
+			// Aplicando a posição
+			layer_1.style.top = -(window.pageYOffset / 3) + 'px';
+			layer_2.style.top = -(window.pageYOffset / 6) + 'px';
+			layer_3.style.top = -(window.pageYOffset / 7) + 'px';
+			layer_4.style.top = -(window.pageYOffset / 7) + 'px';
+		}
+		window.addEventListener("scroll", parallax, false);
+
+	</script>
+
+</head>
+<body>
+	
+	<section>
+	  <div id="layer_3" class="img-parallax"></div>
+	  <div id="layer_4" class="img-parallax"></div>
+	  <div id="layer_1" class="img-parallax"></div>
+	  <div id="layer_2" class="img-parallax"></div>
+	</section>
+
+	<article id="content">
+		<script>
+			for(var i=1; i < 50; i++)
+			{ 
+				document.write('<h1>Testando parallax' +i+ '</h1>'); 
+			} 
+		</script>
+	</article>
+
+</body>
+</html>
